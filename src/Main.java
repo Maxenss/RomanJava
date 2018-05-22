@@ -170,4 +170,86 @@ public class Main {
         c = -20;
         res2 = c / d;       // -INF
     }
+
+    // Ветвления. if-else
+    public static void example7() {
+        // Самый простой тип ветвления
+        // это оператор if-else
+
+        int a = 20;
+        int b = 30;
+
+        // ЕСЛИ:(ВЫполняется условие), ТО:{}
+        if (b > a) {
+            System.out.println("b > a");
+        }
+        // ИНАЧЕ:
+        else {
+            System.out.println("b <= a");
+        }
+
+        // Оператор сравнения чисел:
+        // >, >=, <, <=, != - не равно, == - знак равенства
+    }
+
+    // Ветвления if
+    public static void example8() {
+        int a = 20;
+        int b = 30;
+
+        // ТОлько блок if
+        if (a > b) {
+            System.out.println("a > b");
+        }
+    }
+
+    // Ветвление if-else if-else
+    public static void example9() {
+        int a = 20;
+        int b = 30;
+
+        if (a > b) {
+            System.out.println("a > b");
+        } else if (a == b) {
+            System.out.println("a == b");
+        } else {
+            System.out.println("a < b");
+        }
+
+        // ВАЖНО:
+        // блок if = может быть только один в ветвлении
+        // блоков else if - может сколько-угодно, но else if - не может быть без if
+        // блок else - может быть только один в ветвлении, и обязательно должен быть блок if
+    }
+
+    // Ветвление if-else if
+    public static void example10() {
+        int a = 20;
+        int b = 30;
+
+        if (a < b) {
+            System.out.println("a > b");
+        } else if (a == b) {
+            System.out.println("a == b");
+        }
+    }
+
+    // Вложенные ветвления
+    public static void example11() {
+        int a = 10;
+        int b = 20;
+        int c = 30;
+        int d = 40;
+
+        if (b > a) {
+            System.out.println("a > b");
+            if (c > d) {
+                System.out.println("c > d");
+            } else {
+                System.out.println("c <=d");
+            }
+        }
+
+        /// ВАЖНО: уровень вложенности, может быть бесконечным
+    }
 }
