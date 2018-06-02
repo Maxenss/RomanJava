@@ -10,8 +10,14 @@ public class Main {
         // example1();
         // example5();
         // example13();
-       // example16();
-        example17();
+        // example16();
+        // example17();
+        // example18();
+        // example19();
+        // example20();
+        //example21();
+        // example22();
+        example23();
     }
 
     public static void lecture() {
@@ -431,6 +437,157 @@ public class Main {
             System.out.println("Вторая и последняя цифры равны");
         } else {
             System.out.println("Последняя больше второй");
+        }
+    }
+
+    public static void aripmeticAdditional() {
+        // Инкременет и декремент
+
+        int a = 20;
+        ++a; // увеличение значения переменной на 1, инкремент префиксный
+        --a; // уменьшение значения переменной на 1, декремент префексный
+
+        // Постфиксный - сначала переменная используется, потом изменяется
+        // Префиксный - сначала переменная изменяется потом используется
+
+        // Постфиксный инкремент
+        a = 20;
+        int sum = a++ + 20; // 20 + 20 = 40
+        sum = a + 20;       // 21 + 20 = 41
+
+        // Префиксный инкремен
+        a = 20;
+        sum = ++a + 20;    // 21 + 20 = 21
+    }
+
+    // Разновидности циклов
+    public static void example18() {
+        // while - самый простой, цикл с предусловием
+        // do-while - самый простой, цикс с постусловием, тело цикла выполнится ОДИН раз, независимо от условия
+        // for - средний
+        // foreach (позже)
+
+        // Цикл while
+
+        int a = 20;
+        int b = 30;
+
+        // while(условие выполнения цикла) {тело цикла}
+
+        System.out.println("Цикл while, пример");
+        while (a <= b) {
+            System.out.println("a = " + a);
+            ++a;  // увеличиваем значение а на 1
+        }
+
+        int c = 20;
+        int d = 30;
+
+        System.out.println("Цикл do-while, пример");
+
+        // do {тело цикла} while(условие выполнение цикла)
+
+        do {
+            System.out.println("c = " + c);
+        } while (c > d);
+    }
+
+    // Таблица умножения
+    public static void example19() {
+        // Вывести таблицу умножения на 5
+
+        int opr1 = 5;
+        int max = 10;   // до какого числа, считать таблицу
+        int counter = 0;
+
+        while (counter <= max) {
+            int res = opr1 * counter;
+            System.out.println(opr1 + " * " + counter + " = " + res);
+
+            ++counter; // увелчиваем counter на 1
+        }
+    }
+
+    // Вечный цикл
+    public static void example20() {
+        Scanner scanner = new Scanner(System.in);
+        String str = "";
+
+        // Сравнение строк делается ТОЛЬКО через метод equals
+        while (!str.equals("Esc")) {
+            System.out.println("Введите строку, для подсчета кол-ва символов в ней (Esc - для выхода):");
+            str = scanner.next(); // считываем строку с консоли
+
+            int charsCount = str.length();  // str.lenght() - возвр. количество символов в строке
+
+            System.out.println("Символов в строке: " + charsCount);
+        }
+    }
+
+    // Вложенные циклы
+    // Уровень вложенности, может быть любым
+    public static void example21() {
+        // Нарисовать квадрат размерность n
+        // n вводится с клавиатуры
+
+        Scanner scanner = new Scanner(System.in);
+        int n = 0; // 5
+
+        System.out.println("Введите n: ");
+        n = scanner.nextInt();
+
+        int i = 0; // счетчик для вернхнего цикла
+        int j = 0; // счетчик для вложенного цикла
+
+        while (i < n) {
+            while (j < n) {
+                System.out.print("*");
+                ++j;
+            }
+
+            System.out.println();
+            ++i;
+            j = 0;
+        }
+    }
+
+    public static void example22() {
+        double a = 3;
+        double b = -5;
+        double x = 1;
+        double max = 5;
+        double step = 0.5;
+
+        double y = 0;
+
+        while (x <= max) {
+            y = a * x * x + b;
+            System.out.println("x = " + x + "; y = " + y);
+            x = x + step;
+        }
+    }
+
+    public static void example23() {
+        double a = 0;
+        double b = 10;
+        double step = 1;
+        double x = a;
+
+        double res1;
+        double res2;
+        double res3;
+
+        while (x <= b) {
+            res1 = x - Math.sin(x);
+            res2 = Math.sin(x) * Math.sin(x);
+            res3 = 2 * Math.cos(x) - 1;
+
+            System.out.println("x = " + x);
+            System.out.println("x - Math.sin(x) = " + res1);
+            System.out.println("Math.sin(x) * Math.sin(x) = " + res2);
+            System.out.println("2 * Math.cos(x) - 1 = " + res3);
+
+            x = x + step;
         }
     }
 }
