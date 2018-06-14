@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -17,7 +18,11 @@ public class Main {
         // example20();
         //example21();
         // example22();
-        example23();
+        // example23();
+        // arrayExample();
+        // arrayGetMax();
+        // arrayGetMin();
+        classWorkExample1();
     }
 
     public static void lecture() {
@@ -589,5 +594,162 @@ public class Main {
 
             x = x + step;
         }
+    }
+
+    public static void arrayExample() {
+        // Массивы делятся на два типа:
+        //  - статический массив (магазин автомата, 30 элементов)
+        //  - динимический массив (поездной состав)
+
+        // В Java нам доступны только динамические плюсы
+
+        // Массив характ. :
+        // - тип данных, которые хранятся в массиве, однотипные
+        // - название массива
+        // - количество измерений массива (одномерные, двухмерные, n-мерные)
+        // - длинна массива
+
+        // Пример объявления массива:
+        // Массив элементов типа int на 10 элементов
+        int[] arr = new int[10];
+        // 1 - int - указываем тип данных жлементов, которыеы хранятся в массиве
+        // 2 - [] - указываем, что данная переменная является массивом,
+        //     при чём, каждая пара [] - это одно измерение
+        // 3 - arr - название переменной
+        // 4 - = - знак присвоения
+        // new int[10], указываем, что мы хотим выделить в памяти пространство для
+        //      10 элементов типа int
+
+        // Одномерный массив элементво типа double
+        double[] arrDoubles = new double[20];
+        // Одномерный массив элементов типа String
+        String[] arrStrings = new String[30];
+
+        // Обращение к элементам массива
+        // 1. Присвоить какое-то значение элементу массива
+        int[] arr2 = new int[20];
+        // Присвоить элементу с индексом 3 значение 30
+        arr2[3] = 30;
+        // С индексом 5 значение 50
+        arr2[5] = 50;
+
+        // Получить, вывести элемент массива
+        System.out.println("Элемент массива arr2, по индексу 3:");
+        System.out.println(arr2[3]);
+        System.out.println("ПРосто написали переменную массива:");
+        System.out.println(arr2);
+
+        // Перебор элементов массива в цикле
+        // fori + Enter
+        System.out.println("Вывод элементов массива на экран: ");
+        for (int i = 0; i < arr2.length; i++) {
+            System.out.print(arr2[i] + ",");
+        }
+
+        // arr2.length - length - указывает на длину массива
+
+        // Заполнить массив случайными значениями
+        Random random = new Random();
+
+        for (int i = 0; i < arr2.length; i++) {
+            if (i == 0) {
+                arr2[i] = random.nextInt(1000);
+            } else if (i % 2 == 1) {
+                arr2[i] = random.nextInt(100);
+            } else if (i % 2 == 0) {
+                arr2[i] = random.nextInt(3);
+            }
+        }
+
+        System.out.println("\nВывод элементов массива на экран, сген. случайно: ");
+        for (int i = 0; i < arr2.length; i++) {
+            System.out.print(arr2[i] + ",");
+        }
+
+    }
+
+    public static void arrayGetMax() {
+        // Получить максимальный элемент в массиве, из 20 жлементов.
+        // Массив заполнить случайно
+        Random random = new Random();
+        int[] array = new int[20];
+
+        // Заполняем массив случайным образом
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(50);
+        }
+
+        // Выводим массив на экран
+        System.out.println("Выводим массив на экран:");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + ",");
+        }
+
+        // Поиск максимального значения
+        int max = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+
+        System.out.println("\nМаксимальный элемент: " + max);
+    }
+
+    public static void arrayGetMin() {
+        // Получить максимальный элемент в массиве, из 20 жлементов.
+        // Массив заполнить случайно
+        Random random = new Random();
+        int[] array = new int[20];
+
+        // Заполняем массив случайным образом
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(50);
+        }
+
+        // Выводим массив на экран
+        System.out.println("Выводим массив на экран:");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + ",");
+        }
+
+        // Поиск максимального значения
+        int min = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
+            }
+        }
+
+        System.out.println("\nМинимальный элемент: " + min);
+    }
+
+    public static void classWorkExample1() {
+        int n = 5;
+        int indexOfBank = 0;
+        double[] exchanges = new double[5];
+        exchanges[0] = 26.1;
+        exchanges[1] = 26.3;
+        exchanges[2] = 25.9;
+        exchanges[3] = 25.7;
+        exchanges[4] = 26.12;
+
+        System.out.println("Курсы в банках: ");
+        for (int i = 0; i < exchanges.length; i++) {
+            System.out.println("Банк с индексом " + i
+                    + ", имеет такой курс - " + exchanges[i]);
+        }
+
+        double maxExchange = exchanges[0];
+        for (int i = 0; i < exchanges.length; i++) {
+            if (exchanges[i] > maxExchange) {
+                maxExchange = exchanges[i];
+                indexOfBank = i;
+            }
+        }
+
+        System.out.println("Оптимальный банк с курсом - " + maxExchange);
+        System.out.println("Индекс банка - " + indexOfBank);
+
     }
 }
