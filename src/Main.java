@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -22,7 +23,9 @@ public class Main {
         // arrayExample();
         // arrayGetMax();
         // arrayGetMin();
-        classWorkExample1();
+        // classWorkExample1();
+        // example999();
+        example1000();
     }
 
     public static void lecture() {
@@ -751,5 +754,155 @@ public class Main {
         System.out.println("Оптимальный банк с курсом - " + maxExchange);
         System.out.println("Индекс банка - " + indexOfBank);
 
+    }
+
+    public static void example999() {
+        int[] array1 = new int[10];
+        int[] array2 = new int[10];
+
+        Random random = new Random();
+
+        System.out.println("Первый массив:");
+        for (int i = 0; i < array1.length; i++) {
+            array1[i] = random.nextInt(11);
+            System.out.print(array1[i] + " ");
+        }
+
+        System.out.println("\nВторой массив:");
+        for (int i = 0; i < array2.length; i++) {
+            array2[i] = random.nextInt(11);
+            System.out.print(array2[i] + " ");
+        }
+
+        // Определяем минимальный и максимальный элемент для первого массива
+        int array1Max = array1[0];
+        int array1Min = array1[0];
+        // Определяем минимальный и максимальный элемент для первого массива
+        int array2Max = array2[0];
+        int array2Min = array2[0];
+
+        // Ищем минимальный и максимальный элемент в первом массиве
+        for (int i = 0; i < array1.length; i++) {
+            // Поиск максимального
+            if (array1[i] > array1Max) {
+                array1Max = array1[i];
+            }
+
+            // Поиск минимального
+            if (array1[i] < array1Min) {
+                array1Min = array1[i];
+            }
+        }
+
+        // Ищем минимальный и максимальный элемент во втором массиве
+        for (int i = 0; i < array2.length; i++) {
+            // Поиск максимального
+            if (array2[i] > array2Max) {
+                array2Max = array2[i];
+            }
+
+            // Поиск минимального
+            if (array2[i] < array2Min) {
+                array2Min = array2[i];
+            }
+        }
+
+        System.out.println("\nМинимальный в первом массиве  - " + array1Min);
+        System.out.println("Максимальный в первом массиве - " + array1Max);
+        System.out.println("Минимальный во втором массиве - " + array2Min);
+        System.out.println("Максимальный в втором массиве - " + array2Max);
+    }
+
+    public static void example1000() {
+        int[] array1 = new int[10];
+        int[] array2 = new int[10];
+
+        Random random = new Random();
+
+        System.out.println("Первый массив:");
+        for (int i = 0; i < array1.length; i++) {
+            array1[i] = random.nextInt(11);
+            System.out.print(array1[i] + " ");
+        }
+
+        System.out.println("\nВторой массив:");
+        for (int i = 0; i < array2.length; i++) {
+            array2[i] = random.nextInt(11);
+            System.out.print(array2[i] + " ");
+        }
+
+        // Определяем минимальный и максимальный элемент для первого массива
+        int[] array1Max = new int[3];
+        int[] array1Min = new int[3];
+        // Определяем минимальный и максимальный элемент для первого массива
+        int[] array2Max = new int[3];
+        int[] array2Min = new int[3];
+
+        array1Max[0] = array1[0];
+        array1Min[0] = array1[0];
+        array1Max[1] = array1[1];
+        array1Min[1] = array1[1];
+        array1Max[2] = array1[2];
+        array1Min[2] = array1[2];
+
+        array2Min[0] = array1[0];
+        array2Max[0] = array1[0];
+        array2Min[1] = array1[1];
+        array2Max[1] = array1[1];
+        array2Min[2] = array1[2];
+        array2Max[2] = array1[2];
+
+        // int indexator = 0;     // 0...3
+
+        for (int i = 0; i < 3; i++) {
+            // Ищем минимальный и максимальный элемент в первом массиве
+            for (int j = 0; j < array1.length; j++) {
+                if (i == 0) {
+                    // Поиск максимального
+                    if (array1[j] > array1Max[0]) {
+                        array1Max[0] = array1[j];
+                    }
+
+                    // Поиск минимального
+                    if (array1[j] < array1Min[0]) {
+                        array1Min[0] = array1[j];
+                    }
+                } else if (i == 1) {
+                    // Поиск максимального
+                    if (array1[j] > array1Max[1]
+                            && array1[j] != array1Max[0]) {
+                        array1Max[1] = array1[j];
+                    }
+
+                    // Поиск минимального
+                    if (array1[j] < array1Min[1]
+                            && array1[j] != array1Min[0]) {
+                        array1Min[1] = array1[j];
+                    }
+                } else if (i == 2) {
+                    // Поиск максимального
+                    if (array1[j] > array1Max[2]
+                            && array1[j] != array1Max[0]
+                            && array1[j] != array1Max[1]) {
+                        array1Max[2] = array1[j];
+                    }
+
+                    // Поиск минимального
+                    if (array1[j] < array1Min[2]
+                            && array1[j] != array1Min[0]
+                            && array1[j] != array1Min[1]) {
+                        array1Min[2] = array1[j];
+                    }
+                }
+            }
+        }
+
+        // Функция Arrays.toString(сюда передать массив) - возвращает строку с элементами массива
+        System.out.println("\nМаксимальные в первом массиве:");
+        System.out.println(Arrays.toString(array1Max));
+        System.out.println("Минимальные в первом массиве");
+        System.out.println(Arrays.toString(array1Min));
+
+        // Переписать для второго массива
     }
 }
