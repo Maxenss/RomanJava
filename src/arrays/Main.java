@@ -7,7 +7,9 @@ public class Main {
 
     // psvm - быстрая генерация функции main
     public static void main(String[] args) {
-
+        // example4_8();
+        // example4_7();
+        example4_9();
     }
 
 
@@ -316,5 +318,160 @@ public class Main {
         System.out.println(Arrays.toString(array1Min));
 
         // Переписать для второго массива
+    }
+
+    public static void example4_6() {
+        int array[] = new int[20];
+
+        Random random = new Random();
+
+        // Заполняем случайными значениями
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(10);
+        }
+
+        // Выводим массив на экран
+        System.out.println("Исходный массив:");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+
+        int maxElement = array[0];
+        int minElement = array[0];
+
+        int minElementIndex = 0;
+        int maxElementIndex = 0;
+
+        // Нашли максимальный и минальный
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] >= maxElement) {
+                maxElement = array[i];
+                maxElementIndex = i;
+            }
+
+            if (array[i] <= maxElement) {
+                minElement = array[i];
+                minElementIndex = i;
+            }
+        }
+
+        // Заполняем макс и мин нулями
+        array[maxElementIndex] = 0;
+        array[minElementIndex] = 0;
+    }
+
+    public static void example4_7() {
+        int array[] = new int[20];
+
+        Random random = new Random();
+
+        // Заполняем случайными значениями
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(10);
+        }
+
+        // Выводим массив на экран
+        System.out.println("Исходный массив:");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length; j++) {
+                if (i == j) continue;
+
+                if (array[j] == array[i])
+                    array[j] = 0;
+            }
+        }
+
+        // Выводим массив на экран
+        System.out.println("\nПреобразованный массив:");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+    }
+
+    public static void example4_8() {
+        int[] array = new int[20];
+
+        Random random = new Random();
+
+        // Заполняем массив случайными значениями
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(100) - 50;
+        }
+
+        // Выводим массив на экран
+        System.out.println("Исходный массив:");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+
+        // Задание 1
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < 0) {
+                array[i] = 0;
+            }
+        }
+
+        // Задание 2
+        int n = 40;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > n) {
+                array[i] = 0;
+            }
+        }
+
+        // Задание 3
+        int n1 = 10;
+        int n2 = 15;
+
+        for (int i = n1; i <= n2; i++) {
+            array[i] = 0;
+        }
+
+        // Выводим массив на экран
+        System.out.println("\nПреобразованный массив:");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+    }
+
+    public static void example4_9() {
+        int[] array = new int[20];
+
+        Random random = new Random();
+
+        // Заполняем массив случайными значениями
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(100) - 50;
+        }
+
+        // Выводим массив на экран
+        System.out.println("Исходный массив:");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+
+        // Задание 1
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0 && i % 2 == 1) {
+                array[i] = 0;
+            }
+        }
+
+        // Задание 2
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 3 == 0 || array[i] % 5 == 0) {
+                array[i] = 0;
+            }
+        }
+
+        // Выводим массив на экран
+        System.out.println("\nПреобразованный массив:");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
     }
 }
